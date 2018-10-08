@@ -7,7 +7,11 @@
         </div>
         <div class="media-body">
             <div>
+            @if (Auth::id() == $user->id)
+                {{ $user->name }}(あなた)
+            @else
                 {{ $user->name }}
+            @endif
             </div>
             <div>
                 <p>{!! link_to_route('users.show', 'View profile', ['id' => $user->id]) !!}</p>

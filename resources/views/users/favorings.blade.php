@@ -11,13 +11,16 @@
                     <img class="media-object img-rounded img-responsive" src="{{ Gravatar::src($user->email, 500) }}" alt="">
                 </div>
             </div>
-            @include('user_follow.follow_button', ['user' => $user])
+
         </aside>
         <div class="col-xs-8">
             <ul class="nav nav-tabs nav-justified">
                 @include('users.tagbars')
             </ul>
-            @include('users.users', ['users' => $users])
+
+            @if (count($microposts) > 0)
+                @include('fovarposts.fovarposts', ['microposts' => $microposts])
+            @endif
         </div>
     </div>
 @endsection
